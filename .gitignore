@@ -1,0 +1,36 @@
+# Compiled output
+target/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings
+.factorypath
+.springBeans
+.sts4-cache
+nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+.vscode/
+
+# Log files
+*.log
+
+# JVM crash logs
+hs_err_pid*
+
+# Sensitive configuration files
+src/main/resources/application.properties
+
+# Other
+HELP.md

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/base :: head('部署一覧', @{/css/list-style.css})}">
+</head>
+
+<body th:replace="~{layout/base :: body(~{::content})}">
+
+<div th:fragment="content">
+
+    <h1>部署一覧</h1>
+
+    <div th:if="${param.delete_error}" class="alert alert-danger">
+        削除処理に失敗しました。対象のIDを確認してください。
+    </div>
+
+    <div class="page-actions">
+        <a th:href="@{/web/}" class="btn btn-link">🏠 ホームに戻る</a>
+        <a th:href="@{/web/departments/new}" class="btn btn-primary">＋ 新しい部署を登録</a>
+    </div>
+
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>部署名</th>
+            <th>所在地</th>
+            <th>最終更新日</th>
+            <th class="actions-header">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dept : ${departments}">
+            <td th:text="${dept.id}">1</td>
+            <td th:text="${dept.name}">営業部</td>
+            <td th:text="${dept.location}">東京本社</td>
+            <td th:text="${#temporals.format(dept.updatedAt, 'yyyy-MM-dd HH:mm')}">2025-11-04</td>
+
+            <td class="actions-cell">
+                <a th:href="@{/web/departments/edit/{id}(id=${dept.id})}" class="btn btn-secondary btn-sm">編集</a>
+                <form th:action="@{/web/departments/delete/{id}(id=${dept.id})}" method="post">
+                    <button type="submit"
+                            onclick="return confirm('本当に部署ID ' + [[${dept.id}]] + ' を削除しますか？\n（関連する従業員データも削除されます）');"
+                            class="btn btn-danger btn-sm">
+                        削除
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="footer-note">... APIは裏でJSONを返し、WebControllerはHTMLを返す。共存の始まりです。</p>
+
+</div>
+</body>
+</html>

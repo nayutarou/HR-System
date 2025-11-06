@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/base :: head('ホーム画面', @{/css/home-style.css})}">
+    <title>ホーム画面</title>
+</head>
+<body th:replace="~{layout/base :: body(~{::content})}">
+
+<main th:fragment="content">
+
+    <div class="welcome-message">
+        <h1>HRシステム管理画面へようこそ！</h1>
+        <p>全てのCRUD操作とRESTFul APIが実装済みです。以下のカードから各機能へアクセスしてください。</p>
+    </div>
+
+    <h2>主要機能へのアクセス</h2>
+    <div class="card-container">
+
+        <div class="card">
+            <div class="icon">🏢</div>
+            <h3>部署管理</h3>
+            <p>部署情報の一覧、登録、編集、削除を行います。</p>
+            <a th:href="@{/web/departments}" class="btn-card">部署一覧へ</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>従業員管理</h3>
+            <p>従業員の基本情報、所属、役職などを管理します。</p>
+            <a th:href="@{/web/employees}" class="btn-card">従業員一覧へ</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>RESTful API</h3>
+            <p>外部システム連携用のAPIエンドポイント情報です。</p>
+            <a href="#" class="btn-card disabled">APIドキュメント (仮)</a>
+        </div>
+
+    </div>
+
+    <h2>現在のシステム状態</h2>
+    <ul class="status-list">
+        <li><span class="status-ok">●</span> <strong>データベース接続:</strong> OK</li>
+        <li><span class="status-ok">●</span> <strong>部署 (Departments):</strong> CRUD機能 実装済み</li>
+        <li><span class="status-ok">●</span> <strong>従業員 (Employees):</strong> CRUD機能 実装済み</li>
+    </ul>
+
+</main> </body>
+</html>

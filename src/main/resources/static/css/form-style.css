@@ -1,0 +1,102 @@
+/*
+ * ファイルパス: /static/css/form-style.css
+ * 登録・更新フォーム用のスタイル
+ */
+
+/* --- フォームコンテナ --- */
+.data-form {
+    max-width: 680px; /* フォームの最大幅を少し広げる */
+    margin: 25px auto 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0; /* 細くて明るいボーダー */
+    border-radius: 10px; /* 角丸を少し強く */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04); /* 柔らかい影 */
+}
+
+/* --- フォームグループ (ラベル + 入力) --- */
+.form-group {
+    margin-bottom: 22px; /* グループ間の間隔を調整 */
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+/* 必須マーク */
+.required {
+    color: #e74c3c;
+    margin-left: 5px;
+    font-size: 0.9em;
+}
+
+/* --- フォーム入力欄 (input, select) --- */
+.form-control {
+    width: 100%;
+    padding: 11px 15px; /* パディングを調整 */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* 角丸を強く */
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52,152,219,.25); /* プライマリカラーに合わせたシャドウ */
+}
+
+/* --- フォーム内のサブ見出し (h2) --- */
+.form-subheading {
+    font-size: 1.25rem; /* サイズを調整 */
+    font-weight: 700;
+    color: #34495e;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.data-form .form-subheading:first-of-type {
+    margin-top: 0;
+}
+
+/* --- 読み取り専用の静的コントロール (入社日用) --- */
+.form-control-static {
+    display: block;
+    width: 100%;
+    padding: 11px 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555; /* やや濃い目のテキスト色 */
+    background-color: #f0f2f5; /* より控えめな背景色 */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* --- フォームアクション (ボタン) --- */
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+    border-top: 1px solid #e9ecef;
+    padding-top: 25px;
+}
+
+/* --- エラーメッセージ --- */
+.error-message {
+    color: #e74c3c; /* 危険色 (赤) */
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 6px;
+}

@@ -1,0 +1,109 @@
+/*
+ * ファイルパス: /static/css/home-style.css
+ * ホーム画面（ダッシュボード）専用のスタイル
+ */
+
+/* --- ウェルカムメッセージ --- */
+.welcome-message {
+    padding: 20px;
+    background-color: #f4f6f9; /* ベースの背景色より少し濃いグレー */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+}
+.welcome-message h1 {
+    font-size: 1.8rem; /* h1が大きすぎないように調整 */
+    margin-bottom: 10px;
+    border: none; /* base.htmlのh1の下線を解除 */
+    padding: 0;
+}
+.welcome-message p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* --- カードコンテナ --- */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応 */
+    gap: 25px; /* カード間の隙間 */
+    margin-bottom: 30px;
+}
+
+/* --- カード本体 --- */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px); /* ホバーで少し浮き上がる */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+    flex-grow: 1; /* pタグを伸ばしてボタンの位置を揃える */
+    margin-bottom: 20px;
+}
+
+/* --- カード内ボタン --- */
+.btn-card {
+    display: block; /* カードの幅いっぱいに */
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: #3498db; /* プライマリカラー */
+    color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+.btn-card:hover {
+    background-color: #2980b9;
+}
+.btn-card.disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* --- システム状態リスト --- */
+.status-list {
+    list-style-type: none;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+.status-list li {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 12px;
+}
+.status-list li:last-child {
+    margin-bottom: 0;
+}
+.status-list .status-ok {
+    color: #2ecc71; /* 緑色 */
+    font-weight: bold;
+    margin-right: 8px;
+}

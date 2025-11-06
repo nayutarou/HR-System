@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,url)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="${url}">
+    <title th:text="${title}">HRシステム</title>
+</head>
+
+<nav th:fragment="navbar">
+    <a th:href="@{/web/}">🏠 ホーム</a>
+    <a th:href="@{/web/departments}">🏢 部署一覧</a>
+    <a th:href="@{/web/employees}">👤 従業員一覧</a>
+    <hr>
+</nav>
+
+<body th:fragment="body(content)">
+
+<div class="container">
+    <div th:replace="~{layout/base :: navbar}"></div>
+
+    <main th:replace="${content}"></main>
+</div>
+
+</body>
+</html>

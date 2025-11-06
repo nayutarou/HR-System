@@ -1,0 +1,92 @@
+/*
+ * ファイルパス: /static/css/list-style.css
+ * 部署一覧・従業員一覧など、リスト表示画面用のスタイル
+ */
+
+/* --- ページ上部のアクション --- */
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; /* 下のマージンを少し増やす */
+}
+
+/* --- モダンなデータテーブル --- */
+.data-table {
+    width: 100%;
+    border-collapse: separate; /* border-radiusを使えるように */
+    border-spacing: 0; /* ボーダー間の隙間をなくす */
+    margin-bottom: 25px;
+    background-color: #ffffff;
+    border-radius: 8px; /* テーブル全体に丸み */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 柔らかい影 */
+    overflow: hidden; /* 角丸を効かせるため */
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 18px; /* パディングを調整 */
+    border-bottom: 1px solid #e0e0e0; /* 細くて明るい区切り線 */
+    vertical-align: middle;
+}
+
+.data-table th {
+    background-color: #f8f8f8; /* ヘッダーの背景色をより白に近づける */
+    font-weight: 600;
+    text-align: left;
+    color: #555;
+}
+
+/* ヘッダーの角丸 */
+.data-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.data-table th :last-child {
+    border-top-right-radius: 8px;
+}
+
+
+/* 最終行のボーダーを削除 */
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ホバーエフェクトを控えめに */
+.data-table tbody tr:hover {
+    background-color: #f9f9f9; /* 非常に薄いホバー色 */
+}
+
+/* --- 操作(Action)列のスタイル --- */
+.data-table th.actions-header {
+    text-align: center;
+    width: 160px; /* 操作ボタン用の幅 */
+}
+
+.data-table td.actions-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* ボタン間の隙間を少し減らす */
+}
+
+/* ボタンのサイズ調整 */
+.btn-sm { /* Small Button */
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+/* 削除ボタンはフォームを内包しているため調整 */
+.data-table td.actions-cell form {
+    display: inline-flex; /* ボタンが縦に積まれないように */
+    margin: 0;
+}
+
+/* --- フッター --- */
+.footer-note {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+}
