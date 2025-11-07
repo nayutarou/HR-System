@@ -67,7 +67,6 @@ public class WebControllerTest {
                 .andExpect(model().hasErrors()); // model()
     }
 
-    // ※...他にも「登録成功時のリダイレクト」のテストなども書く...
     // (9) 「新規登録フォーム」の表示テスト
     @Test
     public void testShowDepartmentForm() throws Exception {
