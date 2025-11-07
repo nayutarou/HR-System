@@ -33,4 +33,4 @@ jobs:
       run: chmod +x ./mvnw
 
     - name: Run tests with Maven
-      run: ./mvnw test -Dtest=WebControllerTest
+      run: ./mvnw test -Dtest=HrSystemApplicationTests
