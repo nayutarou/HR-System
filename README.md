@@ -64,5 +64,5 @@
 -   **従業員:** `/api/employees`
 -   **部署:** `/api/departments`
 
-詳細については、[SPECIFICATIONS.md](SPECIFICATIONS.md) ファイルを参照してください。
+詳細については、[SPECIFICATIONS.md](SPECIFICATIONS.md) ファイルを参照してください。  
 テストについては、[TESTING.md](TESTING.md) ファイルを参照してください。
