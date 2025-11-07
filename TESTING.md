@@ -41,4 +41,43 @@
     -   `@WebMvcTest(WebController.class)` アノテーションを使い、`WebController` のみに対象を絞ったテストコンテキストを構築します。
     -   `@MockBean` を使って `DepartmentService` や `EmployeesService` のような外部依存をモック化し、データベースにアクセスすることなくコントローラーのロジックのみをテストします。
     -   `MockMvc` を使って、`GET` や `POST` といったHTTPリクエストをシミュレートし、レスポンスのステータスコード、リダイレクト先、ビュー名、Modelの属性などを検証します。
-    -   バリデーションエラーのケースや、存在しないIDへのアクセスといったエッジケースもテストされています。
+
+#### 主なテストケース
+
+`WebControllerTest.java` では、部署管理と従業員管理の画面に関する以下のテストが実装されています。
+
+##### 部署管理 (`/web/departments`)
+
+-   **一覧画面:**
+    -   `GET /web/departments`: 部署一覧画面が正常に表示されること。
+-   **登録機能:**
+    -   `GET /web/departments/new`: 新規登録フォームが正常に表示されること。
+    -   `POST /web/departments` (成功): 有効なデータをPOSTすると、登録処理が実行され、一覧画面にリダイレクトされること。
+    -   `POST /web/departments` (失敗): 無効なデータ（例: `location`が空）をPOSTすると、バリデーションエラーとなり、フォーム画面が再表示されること。
+-   **更新機能:**
+    -   `GET /web/departments/edit/{id}`: 既存のIDを指定すると、更新フォームが正常に表示されること。
+    -   `POST /web/departments/update/{id}` (成功): 有効なデータをPOSTすると、更新処理が実行され、一覧画面にリダイレクトされること。
+    -   `POST /web/departments/update/{id}` (失敗): 無効なデータ（例: `name`が空）をPOSTすると、バリデーションエラーとなり、フォーム画面が再表示されること。
+-   **削除機能:**
+    -   `POST /web/departments/delete/{id}`: 既存のIDを指定してPOSTすると、削除処理が実行され、一覧画面にリダイレクトされること。
+
+##### 従業員管理 (`/web/employees`)
+
+-   **一覧画面:**
+    -   `GET /web/employees`: 従業員一覧画面が正常に表示されること。
+-   **登録機能:**
+    -   `GET /web/employees/new`: 新規登録フォームが正常に表示されること（部署の選択肢データも含まれる）。
+    -   `POST /web/employees` (成功): 有効なデータをPOSTすると、登録処理が実行され、一覧画面にリダイレクトされること。
+    -   `POST /web/employees` (失敗): 無効なデータ（例: `lastName`が空）をPOSTすると、バリデーションエラーとなり、フォーム画面が再表示されること。
+-   **更新機能:**
+    -   `GET /web/employees/edit/{id}`: 既存のIDを指定すると、更新フォームが正常に表示されること。
+    -   `POST /web/employees/update/{id}` (成功): 有効なデータをPOSTすると、更新処理が実行され、一覧画面にリダイレクトされること。
+    -   `POST /web/employees/update/{id}` (失敗): 無効なデータ（例: `email`の形式が不正）をPOSTすると、バリデーションエラーとなり、フォーム画面が再表示されること。
+-   **削除機能:**
+    -   `POST /web/employees/delete/{id}`: 既存のIDを指定してPOSTすると、削除処理が実行され、一覧画面にリダイレクトされること。
+
+##### 例外処理・エッジケース
+
+-   **存在しないリソースへのアクセス:**
+    -   存在しないID (`999`など) を使って編集画面 (`GET`)、更新処理 (`POST`)、削除処理 (`POST`) を実行した場合をテストします。
+    -   `ResourceNotFoundException` がスローされた際に、システムがクラッシュするのではなく、適切にエラーハンドリングされ、ユーザーにエラーが通知される（または一覧画面にリダイレクトされる）ことを検証します。
