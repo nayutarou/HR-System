@@ -65,3 +65,4 @@
 -   **部署:** `/api/departments`
 
 詳細については、[SPECIFICATIONS.md](SPECIFICATIONS.md) ファイルを参照してください。
+テストについては、[TESTING.md](TESTING.md) ファイルを参照してください。
