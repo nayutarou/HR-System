@@ -64,5 +64,11 @@
 -   **従業員:** `/api/employees`
 -   **部署:** `/api/departments`
 
-詳細については、[SPECIFICATIONS.md](SPECIFICATIONS.md) ファイルを参照してください。  
-テストについては、[TESTING.md](TESTING.md) ファイルを参照してください。
+詳細については、[SPECIFICATIONS.md](SPECIFICATIONS.md) ファイルを参照してください。
+
+## テストについて
+
+このプロジェクトには、Web UI（画面操作）とRESTful APIの両方に対するテストが含まれています。
+
+-   Web UIのテストについては [TESTING.md](TESTING.md) を参照してください。
+-   RESTful APIのテストについては [APITESTING.md](APITESTING.md) を参照してください。
